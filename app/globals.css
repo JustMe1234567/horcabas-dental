@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: #465A66; background: #fff; font-family: Arial, Helvetica, sans-serif; }
+h1, h2, h3, h4 { color: #0B2F4A; font-family: Georgia, "Times New Roman", serif; }
+::selection { background: #bfe8f7; color: #04243D; }
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-[1180px] px-5 sm:px-6; }
+  .section-pad { @apply py-14 md:py-20; }
+  .eyebrow { @apply mb-3 text-xs font-bold uppercase tracking-[0.18em] text-dental; }
+  .section-title { @apply text-3xl font-bold leading-tight tracking-[-0.02em] md:text-4xl; }
+  .btn-primary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-dental px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-dental-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dental; }
+  .btn-secondary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-[#9ECFE1] bg-white px-6 py-3 text-sm font-bold text-navy transition-colors hover:bg-light-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dental; }
+  .card { @apply rounded-xl border border-border bg-white shadow-[0_8px_30px_rgba(6,43,73,0.05)]; }
+}
+
+.skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 100; border-radius: .375rem; background: white; padding: .75rem 1rem; color: #062B49; box-shadow: 0 4px 20px rgba(0,0,0,.2); }
+.skip-link:focus { top: 1rem; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
