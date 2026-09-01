@@ -1,6 +1,7 @@
 import "@fontsource-variable/dm-sans";
 import "@fontsource-variable/outfit";
 import "./styles.css";
+import clinicLogo from "../assets/horcabas-logo.png";
 import { getCalendarEvents, lookupSchedule, toLocalDateKey } from "./calendar-service.js";
 
 const PHONE_DISPLAY = "(02) 8123 4567";
@@ -34,8 +35,7 @@ document.querySelector("#app").innerHTML = `
     </div>
     <nav class="shell nav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Horcabas Dental Clinic home">
-        <span class="brand-mark" aria-hidden="true">H</span>
-        <span><strong>HORCABAS</strong><small>DENTAL CLINIC</small></span>
+        <img class="brand-logo" src="${clinicLogo}" alt="" width="2170" height="725" />
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span>Menu</span><i aria-hidden="true"></i></button>
       <div class="nav-links" id="nav-links">
