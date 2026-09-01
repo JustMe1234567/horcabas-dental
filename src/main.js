@@ -1,13 +1,11 @@
-import "@fontsource-variable/dm-sans";
-import "@fontsource-variable/outfit";
-import "./styles.css";
-import clinicLogo from "../assets/horcabas-logo.png";
-import checkupArticleImage from "../assets/dental-checkup-cleaning-oroquieta-city.webp";
-import fillingsArticleImage from "../assets/dental-fillings-oroquieta-city.webp";
-import familyArticleImage from "../assets/family-dentist-oroquieta-city.webp";
-import cosmeticArticleImage from "../assets/cosmetic-dentistry-oroquieta-city.webp";
-import crownsArticleImage from "../assets/crowns-bridges-oroquieta-city.webp";
 import { getCalendarEvents, lookupSchedule, toLocalDateKey } from "./calendar-service.js";
+
+const clinicLogo = "/assets/horcabas-logo.png";
+const checkupArticleImage = "/assets/dental-checkup-cleaning-oroquieta-city.webp";
+const fillingsArticleImage = "/assets/dental-fillings-oroquieta-city.webp";
+const familyArticleImage = "/assets/family-dentist-oroquieta-city.webp";
+const cosmeticArticleImage = "/assets/cosmetic-dentistry-oroquieta-city.webp";
+const crownsArticleImage = "/assets/crowns-bridges-oroquieta-city.webp";
 
 const PHONE_DISPLAY = "0969 519 5316";
 const PHONE_LINK = "+639695195316";

@@ -1,15 +1,15 @@
-# Horcabas Calendar backend setup
+# Horcabas Calendar setup for Next.js
 
 The backend starts in mock mode. No real Google credentials are required until the clinic calendar is ready.
 
 ## Run locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
-The website runs through Vite and sends `/api` requests to the local backend on port 3000.
+Next.js serves the website and its `/api` calendar routes together on port 3000.
 
 ## Secretary event format
 
@@ -33,7 +33,7 @@ Only `PHONE`, `SERVICE`, and `STATUS` are parsed. Patient names, phone numbers, 
 4. Find the calendar ID under Google Calendar **Settings and sharing > Integrate calendar**.
 5. Add the calendar ID, service-account email, and private key to `.env`.
 6. Change `CALENDAR_MODE=mock` to `CALENDAR_MODE=google`.
-7. Restart the backend.
+7. Restart the Next.js development server or redeploy the project.
 
 Never place these credentials in frontend code or commit the completed `.env` file.
 

@@ -1,0 +1,18 @@
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css";
+
+@source "../pages";
+@source "../components";
+
+@theme {
+  --font-sans: "DM Sans Variable", "Segoe UI", sans-serif;
+  --font-display: "Outfit Variable", "Segoe UI", sans-serif;
+
+  --color-clinic-ink: #10224a;
+  --color-clinic-muted: #5e6b86;
+  --color-clinic-blue: #1859c9;
+  --color-clinic-deep: #123d99;
+  --color-clinic-violet: #6947c7;
+  --color-clinic-surface: #f7f9ff;
+  --color-clinic-line: #dce4f2;
+}
