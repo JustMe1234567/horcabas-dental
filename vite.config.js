@@ -12,6 +12,7 @@ export default {
     rollupOptions: {
       input: {
         home: page("./index.html"),
+        about: page("./about/index.html"),
         checkupCleaning: page("./dental-checkup-cleaning-oroquieta-city/index.html"),
         fillings: page("./dental-fillings-oroquieta-city/index.html"),
         familyDentist: page("./family-dentist-oroquieta-city/index.html"),

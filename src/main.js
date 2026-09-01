@@ -65,9 +65,9 @@ document.querySelector("#app").innerHTML = `
         </div>
         <span class="nav-menu-label">Explore the clinic</span>
         <a href="#services">Services</a>
-        <a href="#blog">Blog</a>
         <a href="#availability">Availability</a>
-        <a href="#about">About</a>
+        <a href="/about/">About</a>
+        <a href="#blog">Blog</a>
         <a class="button button-small" href="tel:${PHONE_LINK}">Call to schedule</a>
       </div>
     </nav>
@@ -125,33 +125,6 @@ document.querySelector("#app").innerHTML = `
               <span>${number}</span>
               <h3><a href="${url}">${title}</a></h3>
               <p>${copy} <a class="service-learn-link" href="${url}">Learn more</a></p>
-            </article>
-          `).join("")}
-        </div>
-      </div>
-    </section>
-
-    <section class="section blog-section" id="blog">
-      <div class="shell">
-        <div class="blog-heading reveal">
-          <div>
-            <p class="eyebrow">Dental health library</p>
-            <h2>Helpful reading before your visit.</h2>
-          </div>
-          <p>Clear, locally relevant guides to common dental services and questions from patients in Oroquieta City.</p>
-        </div>
-        <div class="article-grid">
-          ${articles.map(([category, title, copy, url, image], index) => `
-            <article class="article-card reveal${index === 0 ? " article-card-featured" : ""}" style="--reveal-order: ${index}">
-              <a class="article-card-image" href="${url}" aria-label="Read ${title}">
-                <img src="${image}" alt="" width="1536" height="1024" loading="lazy" />
-              </a>
-              <div class="article-card-copy">
-                <span>${category}</span>
-                <h3><a href="${url}">${title}</a></h3>
-                <p>${copy}</p>
-                <a class="article-read-link" href="${url}">Read article <span aria-hidden="true">→</span></a>
-              </div>
             </article>
           `).join("")}
         </div>
@@ -229,6 +202,33 @@ document.querySelector("#app").innerHTML = `
             <div><strong>Transparent</strong><span>Clear options before treatment</span></div>
             <div><strong>Gentle</strong><span>A calmer clinical experience</span></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blog-section" id="blog">
+      <div class="shell">
+        <div class="blog-heading reveal">
+          <div>
+            <p class="eyebrow">Dental health library</p>
+            <h2>Helpful reading before your visit.</h2>
+          </div>
+          <p>Clear, locally relevant guides to common dental services and questions from patients in Oroquieta City.</p>
+        </div>
+        <div class="article-grid">
+          ${articles.map(([category, title, copy, url, image], index) => `
+            <article class="article-card reveal${index === 0 ? " article-card-featured" : ""}" style="--reveal-order: ${index}">
+              <a class="article-card-image" href="${url}" aria-label="Read ${title}">
+                <img src="${image}" alt="" width="1536" height="1024" loading="lazy" />
+              </a>
+              <div class="article-card-copy">
+                <span>${category}</span>
+                <h3><a href="${url}">${title}</a></h3>
+                <p>${copy}</p>
+                <a class="article-read-link" href="${url}">Read article <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+          `).join("")}
         </div>
       </div>
     </section>
