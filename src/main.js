@@ -179,7 +179,7 @@ document.querySelector("#app").innerHTML = `
         <div class="map-frame reveal">
           <iframe
             title="Map showing Horcabas Dental Clinic in Oroquieta City"
-            src="https://www.google.com/maps?q=8.481573822931571,123.80389927008653&amp;z=17&amp;output=embed"
+            src="https://www.google.com/maps?q=8.481573822931571,123.80389927008653&amp;z=17&amp;t=k&amp;output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen
