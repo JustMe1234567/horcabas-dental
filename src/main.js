@@ -39,7 +39,12 @@ document.querySelector("#app").innerHTML = `
         <img class="brand-logo" src="${clinicLogo}" alt="" width="2172" height="724" />
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span>Menu</span><i aria-hidden="true"></i></button>
+      <button class="nav-scrim" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
       <div class="nav-links" id="nav-links">
+        <div class="nav-drawer-header">
+          <span>Menu</span>
+          <button class="nav-close" type="button" aria-label="Close navigation menu"><i aria-hidden="true"></i></button>
+        </div>
         <span class="nav-menu-label">Explore the clinic</span>
         <a href="#services">Services</a>
         <a href="#availability">Availability</a>
@@ -213,21 +218,39 @@ document.querySelector("#app").innerHTML = `
 `;
 
 const menuButton = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+const navScrim = document.querySelector(".nav-scrim");
+const navCloseButton = document.querySelector(".nav-close");
+
+const setMenuOpen = (isOpen, restoreFocus = false) => {
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  navLinks.classList.toggle("is-open", isOpen);
+  navScrim.classList.toggle("is-open", isOpen);
+  navScrim.tabIndex = isOpen ? 0 : -1;
+  document.body.classList.toggle("menu-open", isOpen);
+
+  if (isOpen) {
+    requestAnimationFrame(() => navCloseButton.focus());
+  } else if (restoreFocus) {
+    menuButton.focus();
+  }
+};
+
 menuButton.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  document.querySelector(".nav-links").classList.toggle("is-open", !isOpen);
+  setMenuOpen(!isOpen);
 });
 
+navScrim.addEventListener("click", () => setMenuOpen(false, true));
+navCloseButton.addEventListener("click", () => setMenuOpen(false, true));
+
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") return;
-  menuButton.setAttribute("aria-expanded", "false");
-  document.querySelector(".nav-links").classList.remove("is-open");
+  if (event.key !== "Escape" || menuButton.getAttribute("aria-expanded") !== "true") return;
+  setMenuOpen(false, true);
 });
 
 document.querySelectorAll(".nav-links a").forEach((link) => link.addEventListener("click", () => {
-  menuButton.setAttribute("aria-expanded", "false");
-  document.querySelector(".nav-links").classList.remove("is-open");
+  setMenuOpen(false);
 }));
 
 const lookupForm = document.querySelector("#schedule-lookup-form");
