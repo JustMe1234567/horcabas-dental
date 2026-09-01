@@ -300,7 +300,7 @@ function renderCalendar() {
     const event = eventsByDate.get(key);
     const past = date < new Date(new Date().setHours(0, 0, 0, 0));
     const classes = ["date-cell", event ? "available" : "unavailable", past ? "past" : "", key === selectedDate ? "selected" : ""].filter(Boolean).join(" ");
-    return `<button class="${classes}" style="--date-order: ${index % 7}" data-date="${key}" ${!event ? "disabled" : ""} aria-label="${event ? `Available ${displayDate(key)}` : `Unavailable ${displayDate(key)}`}"><span>${index + 1}</span>${event ? "<small>Available</small>" : ""}</button>`;
+    return `<button class="${classes}" style="--date-order: ${index % 7}" data-date="${key}" ${!event ? "disabled" : ""} aria-label="${event ? `Available ${displayDate(key)}` : `Unavailable ${displayDate(key)}`}"><span>${index + 1}</span>${event ? `<small>${event.slots.length} available</small>` : ""}</button>`;
   }).join("")}`;
 
   grid.classList.remove("is-changing");
