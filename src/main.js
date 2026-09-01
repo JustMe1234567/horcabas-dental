@@ -2,6 +2,11 @@ import "@fontsource-variable/dm-sans";
 import "@fontsource-variable/outfit";
 import "./styles.css";
 import clinicLogo from "../assets/horcabas-logo.png";
+import checkupArticleImage from "../assets/dental-checkup-cleaning-oroquieta-city.webp";
+import fillingsArticleImage from "../assets/dental-fillings-oroquieta-city.webp";
+import familyArticleImage from "../assets/family-dentist-oroquieta-city.webp";
+import cosmeticArticleImage from "../assets/cosmetic-dentistry-oroquieta-city.webp";
+import crownsArticleImage from "../assets/crowns-bridges-oroquieta-city.webp";
 import { getCalendarEvents, lookupSchedule, toLocalDateKey } from "./calendar-service.js";
 
 const PHONE_DISPLAY = "0969 519 5316";
@@ -25,6 +30,14 @@ const services = [
   ["03", "Cosmetic dental care", "Thoughtful smile improvements planned around oral health and realistic expectations.", "/cosmetic-dentistry-oroquieta-city/"],
   ["04", "Crowns and bridges", "Restorative options for selected damaged or missing teeth, based on a dental assessment.", "/crowns-bridges-oroquieta-city/"],
   ["05", "Family dentistry", "Patient dental care for children, adults, seniors, and every generation in between.", "/family-dentist-oroquieta-city/"]
+];
+
+const articles = [
+  ["Preventive care", "Dental checkup and cleaning in Oroquieta City", "A practical guide to routine examinations, professional cleaning, and when to contact a dentist.", "/dental-checkup-cleaning-oroquieta-city/", checkupArticleImage],
+  ["Restorative care", "What to know about dental fillings", "Understand why a filling may be recommended, how a tooth is assessed, and what to expect afterward.", "/dental-fillings-oroquieta-city/", fillingsArticleImage],
+  ["Family care", "Choosing a family dentist in Oroquieta City", "Helpful guidance for children, adults, seniors, and families preparing for dental visits.", "/family-dentist-oroquieta-city/", familyArticleImage],
+  ["Smile planning", "A guide to cosmetic dentistry", "Learn how oral health, personal goals, realistic expectations, and maintenance shape cosmetic care.", "/cosmetic-dentistry-oroquieta-city/", cosmeticArticleImage],
+  ["Restoring teeth", "Dental crowns and bridges explained", "Compare crowns and bridges, how treatment is planned, and how restorations are cared for.", "/crowns-bridges-oroquieta-city/", crownsArticleImage]
 ];
 
 document.querySelector("#app").innerHTML = `
@@ -52,11 +65,9 @@ document.querySelector("#app").innerHTML = `
         </div>
         <span class="nav-menu-label">Explore the clinic</span>
         <a href="#services">Services</a>
-        <a href="#patient-guide">Patient guide</a>
+        <a href="#blog">Blog</a>
         <a href="#availability">Availability</a>
-        <a href="#my-schedule">My schedule</a>
         <a href="#about">About</a>
-        <a href="#location">Location</a>
         <a class="button button-small" href="tel:${PHONE_LINK}">Call to schedule</a>
       </div>
     </nav>
@@ -114,6 +125,33 @@ document.querySelector("#app").innerHTML = `
               <span>${number}</span>
               <h3><a href="${url}">${title}</a></h3>
               <p>${copy} <a class="service-learn-link" href="${url}">Learn more</a></p>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+
+    <section class="section blog-section" id="blog">
+      <div class="shell">
+        <div class="blog-heading reveal">
+          <div>
+            <p class="eyebrow">Dental health library</p>
+            <h2>Helpful reading before your visit.</h2>
+          </div>
+          <p>Clear, locally relevant guides to common dental services and questions from patients in Oroquieta City.</p>
+        </div>
+        <div class="article-grid">
+          ${articles.map(([category, title, copy, url, image], index) => `
+            <article class="article-card reveal${index === 0 ? " article-card-featured" : ""}" style="--reveal-order: ${index}">
+              <a class="article-card-image" href="${url}" aria-label="Read ${title}">
+                <img src="${image}" alt="" width="1536" height="1024" loading="lazy" />
+              </a>
+              <div class="article-card-copy">
+                <span>${category}</span>
+                <h3><a href="${url}">${title}</a></h3>
+                <p>${copy}</p>
+                <a class="article-read-link" href="${url}">Read article <span aria-hidden="true">→</span></a>
+              </div>
             </article>
           `).join("")}
         </div>
