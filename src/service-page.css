@@ -34,12 +34,15 @@
 .service-note strong { display: block; color: var(--ink); }
 .service-note p { margin: 5px 0 0; font-size: 14px; }
 .service-faq { margin-top: 26px; border-top: 1px solid var(--line); }
-.service-faq details { border-bottom: 1px solid var(--line); }
-.service-faq summary { min-height: 70px; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; color: var(--ink); font: 700 18px "Outfit Variable", sans-serif; list-style: none; }
+.service-faq details { border-bottom: 1px solid var(--line); transition: border-color var(--motion-fast) ease; }
+.service-faq details.is-expanded { border-bottom-color: #b8c9ed; }
+.service-faq summary { min-height: 70px; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; color: var(--ink); font: 700 18px "Outfit Variable", sans-serif; list-style: none; transition: color var(--motion-fast) ease; }
+.service-faq summary:hover, .service-faq summary:focus-visible, .service-faq details.is-expanded summary { color: var(--blue-deep); }
 .service-faq summary::-webkit-details-marker { display: none; }
 .service-faq summary::after { content: "+"; width: 30px; height: 30px; display: grid; flex: 0 0 auto; place-items: center; border-radius: 50%; background: var(--lavender); color: var(--blue-deep); transition: transform var(--motion-base) var(--ease-enter); }
 .service-faq details.is-expanded summary::after { transform: rotate(45deg); }
-.service-faq details p { margin: 0 42px 22px 0; color: var(--muted); }
+.service-faq details p { margin: 0 42px 22px 0; color: var(--muted); opacity: 0; transform: translateY(-6px); transition: opacity var(--motion-base) ease, transform var(--motion-base) var(--ease-enter); }
+.service-faq details.is-expanded p { opacity: 1; transform: translateY(0); }
 .related-services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 25px; }
 .related-services a { padding: 18px; border: 1px solid var(--line); border-radius: 12px; color: var(--blue-deep); background: var(--surface); font-family: "Outfit Variable", sans-serif; font-weight: 700; }
 .related-services a:hover { border-color: #aebfe5; background: var(--sky); }
@@ -100,12 +103,13 @@
 .blog-index-section { padding: 0 0 110px; }
 .blog-index-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .blog-index-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--white); transition: transform var(--motion-base) var(--ease-enter), box-shadow var(--motion-base) ease, border-color var(--motion-fast) ease; }
-.blog-index-card:hover { transform: translateY(-4px); border-color: #b8c9ed; box-shadow: 0 22px 55px rgba(30,66,141,.11); }
+.blog-index-card:hover, .blog-index-card:focus-within { transform: translateY(-4px); border-color: #b8c9ed; box-shadow: 0 22px 55px rgba(30,66,141,.11); }
+.blog-index-card:active { transform: translateY(-1px) scale(.995); }
 .blog-index-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr .85fr; }
 .blog-index-image { min-height: 270px; display: block; overflow: hidden; background: var(--sky); }
 .blog-index-featured .blog-index-image { min-height: 470px; }
 .blog-index-image img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 700ms var(--ease-enter); }
-.blog-index-card:hover .blog-index-image img { transform: scale(1.025); }
+.blog-index-card:hover .blog-index-image img, .blog-index-card:focus-within .blog-index-image img { transform: scale(1.025); }
 .blog-index-copy { display: flex; align-items: flex-start; flex-direction: column; padding: 32px; }
 .blog-index-copy > span { color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
 .blog-index-copy h2 { margin: 12px 0 15px; font-size: clamp(27px, 3vw, 39px); }

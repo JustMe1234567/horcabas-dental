@@ -55,6 +55,15 @@ document.querySelectorAll(".service-faq details").forEach((details) => {
   details.addEventListener("toggle", () => details.classList.toggle("is-expanded", details.open));
 });
 
+document.querySelectorAll(".article-content > h2, .service-steps, .service-note, .service-faq, .related-services, .article-sources, .service-cta-inner").forEach((element, index) => {
+  element.classList.add("reveal");
+  element.style.setProperty("--reveal-order", String(index % 3));
+});
+
+document.querySelectorAll(".blog-index-card").forEach((element, index) => {
+  element.style.setProperty("--reveal-order", String(Math.min(index, 3)));
+});
+
 const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
   if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); }
 }), { threshold: 0.12 });
