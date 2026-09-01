@@ -194,6 +194,8 @@ h1 em { color: var(--violet); font-style: normal; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 55px; }
 .footer strong { color: var(--white); }
 .footer p { margin: 11px 0 0; color: #aebbd6; font-size: 14px; }
+.footer p a { color: var(--white); text-decoration: underline; text-decoration-color: rgba(255,255,255,.35); text-underline-offset: 3px; }
+.footer p a:hover, .footer p a:focus-visible { text-decoration-color: currentColor; }
 .footer-brand .brand-mark { background: var(--white); color: var(--blue-deep); }
 .footer-brand small { color: #aebbd6; }
 .footer-bottom { display: flex; justify-content: space-between; gap: 30px; margin-top: 56px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); color: #8291b2; font-size: 12px; }

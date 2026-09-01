@@ -4,8 +4,9 @@ import "./styles.css";
 import clinicLogo from "../assets/horcabas-logo.png";
 import { getCalendarEvents, lookupSchedule, toLocalDateKey } from "./calendar-service.js";
 
-const PHONE_DISPLAY = "(02) 8123 4567";
-const PHONE_LINK = "+63281234567";
+const PHONE_DISPLAY = "0969 519 5316";
+const PHONE_LINK = "+639695195316";
+const FACEBOOK_URL = "https://www.facebook.com/HorcabasDentalClinic";
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({
   "&": "&amp;",
   "<": "&lt;",
@@ -201,7 +202,7 @@ document.querySelector("#app").innerHTML = `
       <div class="brand footer-brand"><span class="brand-mark">H</span><span><strong>HORCABAS</strong><small>DENTAL CLINIC</small></span></div>
       <div><strong>Visit us</strong><p>2nd Floor, JSPC Arcade<br />Lower Langcangan, Oroquieta City<br />Philippines</p></div>
       <div><strong>Clinic hours</strong><p>Monday to Saturday<br />8:00 AM to 12:00 PM<br />1:00 PM to 5:00 PM</p></div>
-      <div><strong>Appointments</strong><p><a href="tel:${PHONE_LINK}">${PHONE_DISPLAY}</a><br />Call to confirm your schedule</p></div>
+      <div><strong>Appointments</strong><p><a href="tel:${PHONE_LINK}">${PHONE_DISPLAY}</a><br />Call to confirm your schedule<br /><a href="${FACEBOOK_URL}" target="_blank" rel="noopener noreferrer">Message us on Facebook</a></p></div>
     </div>
     <div class="shell footer-bottom"><span>© ${new Date().getFullYear()} Horcabas Dental Clinic</span><span>Calendar availability is subject to confirmation.</span></div>
   </footer>
