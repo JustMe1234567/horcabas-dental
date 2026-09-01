@@ -43,6 +43,7 @@ document.querySelector("#app").innerHTML = `
         <a href="#availability">Availability</a>
         <a href="#my-schedule">My schedule</a>
         <a href="#about">About</a>
+        <a href="#location">Location</a>
         <a class="button button-small" href="tel:${PHONE_LINK}">Call to schedule</a>
       </div>
     </nav>
@@ -167,6 +168,26 @@ document.querySelector("#app").innerHTML = `
       </div>
     </section>
 
+    <section class="section location-section" id="location">
+      <div class="shell location-grid">
+        <div class="location-copy reveal">
+          <p class="eyebrow">Visit the clinic</p>
+          <h2>Find us in Oroquieta City.</h2>
+          <address>2nd Floor, JSPC Arcade<br />Lower Langcangan, Oroquieta City<br />Philippines</address>
+          <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=8.481573822931571%2C123.80389927008653" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+        </div>
+        <div class="map-frame reveal">
+          <iframe
+            title="Map showing Horcabas Dental Clinic in Oroquieta City"
+            src="https://www.google.com/maps?q=8.481573822931571,123.80389927008653&amp;z=17&amp;output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
     <section class="section cta-section">
       <div class="shell cta-inner reveal">
         <div><p>Ready when you are.</p><h2>Let’s take care of your smile.</h2></div>
@@ -178,7 +199,7 @@ document.querySelector("#app").innerHTML = `
   <footer class="footer">
     <div class="shell footer-grid">
       <div class="brand footer-brand"><span class="brand-mark">H</span><span><strong>HORCABAS</strong><small>DENTAL CLINIC</small></span></div>
-      <div><strong>Visit us</strong><p>123 Health Avenue<br />Your City, Philippines</p></div>
+      <div><strong>Visit us</strong><p>2nd Floor, JSPC Arcade<br />Lower Langcangan, Oroquieta City<br />Philippines</p></div>
       <div><strong>Clinic hours</strong><p>Monday to Saturday<br />8:00 AM to 12:00 PM<br />1:00 PM to 5:00 PM</p></div>
       <div><strong>Appointments</strong><p><a href="tel:${PHONE_LINK}">${PHONE_DISPLAY}</a><br />Call to confirm your schedule</p></div>
     </div>
