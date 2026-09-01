@@ -30,8 +30,12 @@ document.querySelector("#app").innerHTML = `
   <header class="site-header">
     <div class="utility-bar">
       <div class="shell utility-inner">
-        <span>Mon to Sat, 8:00 AM to 12:00 PM and 1:00 PM to 5:00 PM</span>
-        <a href="tel:${PHONE_LINK}">${PHONE_DISPLAY}</a>
+        <span class="utility-hours"><strong>Available:</strong> Mon to Sat · 8:00 AM–12:00 PM · 1:00 PM–5:00 PM</span>
+        <a class="utility-location" href="#location">
+          <span class="utility-location-desktop">2nd Floor, JSPC Arcade · Oroquieta City</span>
+          <span class="utility-location-mobile">Oroquieta City</span>
+        </a>
+        <a class="utility-phone" href="tel:${PHONE_LINK}" aria-label="Call Horcabas Dental Clinic at ${PHONE_DISPLAY}">${PHONE_DISPLAY}</a>
       </div>
     </div>
     <nav class="shell nav" aria-label="Primary navigation">

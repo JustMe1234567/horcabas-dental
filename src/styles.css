@@ -33,8 +33,14 @@ section[id] { scroll-margin-top: 110px; }
 .skip-link:focus { transform: translateY(0); }
 
 .utility-bar { background: var(--ink); color: var(--white); font-size: 12px; }
-.utility-inner { min-height: 34px; display: flex; align-items: center; justify-content: space-between; }
+.utility-inner { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .utility-inner a { font-weight: 700; }
+.utility-hours { flex: 1 1 auto; }
+.utility-hours strong { color: #bcd0ff; text-transform: uppercase; letter-spacing: .06em; }
+.utility-location { flex: 0 1 auto; color: #dfe8ff; white-space: nowrap; }
+.utility-location:hover, .utility-location:focus-visible { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+.utility-location-mobile { display: none; }
+.utility-phone { flex: 0 0 auto; white-space: nowrap; }
 .site-header { position: sticky; top: 0; z-index: 40; background: rgba(247,249,255,.94); backdrop-filter: blur(14px); box-shadow: 0 1px 0 rgba(16,34,74,.06); }
 .nav { position: relative; height: 74px; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; align-items: center; gap: 11px; }
@@ -211,6 +217,7 @@ h1 em { color: var(--violet); font-style: normal; }
 @keyframes slot-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 900px) {
+  .site-header { -webkit-backdrop-filter: none; backdrop-filter: none; }
   body.menu-open { overflow: hidden; }
   .nav-scrim { position: fixed; inset: 0; z-index: 48; display: block; visibility: hidden; opacity: 0; pointer-events: none; border: 0; background: rgba(12, 26, 57, .48); cursor: pointer; transition: opacity var(--motion-base) ease, visibility 0s linear var(--motion-base); }
   .nav-scrim.is-open { visibility: visible; opacity: 1; pointer-events: auto; transition: opacity var(--motion-base) ease, visibility 0s; }
@@ -240,8 +247,10 @@ h1 em { color: var(--violet); font-style: normal; }
 @media (max-width: 620px) {
   .shell { width: min(100% - 28px, 1180px); }
   .brand-logo { width: 190px; }
-  .utility-inner span { display: none; }
-  .utility-inner { justify-content: flex-end; }
+  .utility-inner { min-height: 40px; justify-content: space-between; gap: 14px; }
+  .utility-hours, .utility-location-desktop { display: none; }
+  .utility-location-mobile { display: inline; }
+  .utility-location, .utility-phone { min-height: 40px; display: inline-flex; align-items: center; font-size: 12px; }
   .hero { min-height: 700px; }
   .hero-grid { min-height: 700px; }
   .hero-copy { padding-top: 54px; }
