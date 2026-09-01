@@ -152,10 +152,10 @@ document.querySelector("#app").innerHTML = `
           <div class="form-heading"><strong>Find an existing appointment</strong><span>Appointments must already be entered by the secretary.</span></div>
           <label for="lookup-phone">Phone number used for scheduling</label>
           <div class="lookup-controls">
-            <input id="lookup-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0917 123 4567" required aria-describedby="lookup-help lookup-result" />
+            <input id="lookup-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="09171234567" pattern="[0-9]*" maxlength="12" required aria-describedby="lookup-help lookup-result" />
             <button class="button" type="submit">Find my schedule</button>
           </div>
-          <small id="lookup-help">Philippine mobile formats such as 0917 123 4567 or +63 917 123 4567 are accepted.</small>
+          <small id="lookup-help">Enter numbers only, such as 09171234567 or 639171234567.</small>
           <div class="lookup-result" id="lookup-result" aria-live="polite"></div>
         </form>
       </div>
@@ -259,6 +259,10 @@ document.querySelectorAll(".nav-links a").forEach((link) => link.addEventListene
 
 const lookupForm = document.querySelector("#schedule-lookup-form");
 const lookupResult = document.querySelector("#lookup-result");
+const lookupPhone = lookupForm.elements.phone;
+lookupPhone.addEventListener("input", () => {
+  lookupPhone.value = lookupPhone.value.replace(/\D/g, "");
+});
 const lookupError = (message) => `
   <div class="result-message is-error" role="alert">
     <strong>We couldn't check your schedule.</strong>
