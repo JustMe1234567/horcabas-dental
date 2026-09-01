@@ -37,7 +37,7 @@ const lookupLimiter = rateLimit({
   message: { error: "Too many lookup attempts. Please wait before trying again." }
 });
 
-app.post("/api/schedules/lookup", lookupLimiter, async (request, response) => {
+const lookupHandler = async (request, response) => {
   response.set("Cache-Control", "no-store");
   try {
     const result = await findSchedulesByPhone(request.body?.phone);
@@ -47,7 +47,9 @@ app.post("/api/schedules/lookup", lookupLimiter, async (request, response) => {
     console.error("Schedule lookup failed:", error.message);
     return response.status(503).json({ error: "Schedule lookup is temporarily unavailable." });
   }
-});
+};
+
+app.post(["/api/lookup", "/api/schedules/lookup"], lookupLimiter, lookupHandler);
 
 app.use("/api", (_request, response) => {
   response.status(404).json({ error: "The requested calendar service was not found." });

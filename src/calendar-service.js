@@ -70,7 +70,7 @@ export async function getCalendarEvents({ year, month }) {
 }
 
 export async function lookupSchedule(phone) {
-  const payload = await requestJson("/api/schedules/lookup", {
+  const payload = await requestJson("/api/lookup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ phone })
