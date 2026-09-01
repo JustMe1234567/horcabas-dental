@@ -40,6 +40,7 @@ document.querySelector("#app").innerHTML = `
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span>Menu</span><i aria-hidden="true"></i></button>
       <div class="nav-links" id="nav-links">
+        <span class="nav-menu-label">Explore the clinic</span>
         <a href="#services">Services</a>
         <a href="#availability">Availability</a>
         <a href="#my-schedule">My schedule</a>
