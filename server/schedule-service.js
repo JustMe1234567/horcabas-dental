@@ -29,13 +29,28 @@ export function normalizePhone(value) {
   return `+${digits}`;
 }
 
-function parseDescription(description = "") {
+export function parseDescription(description = "") {
   const fields = {};
   for (const line of description.split(/\r?\n/)) {
     const match = line.match(/^([A-Z][A-Z _-]*):\s*(.+)$/i);
     if (match) fields[match[1].trim().toUpperCase()] = match[2].trim();
   }
   return fields;
+}
+
+const PHONE_FIELDS = [
+  "PHONE",
+  "PHONE NUMBER",
+  "NUMBER",
+  "CONTACT",
+  "CONTACT NUMBER",
+  "MOBILE",
+  "MOBILE NUMBER"
+];
+
+export function getPhoneFromDescription(description = "") {
+  const fields = parseDescription(description);
+  return PHONE_FIELDS.map((field) => fields[field]).find(Boolean) || null;
 }
 
 function overlaps(startA, endA, startB, endB) {
@@ -81,7 +96,7 @@ export async function findSchedulesByPhone(phone) {
   const events = await getUpcomingEvents();
   const appointments = events.flatMap((event) => {
     const fields = parseDescription(event.description);
-    if (normalizePhone(fields.PHONE) !== normalized) return [];
+    if (normalizePhone(getPhoneFromDescription(event.description)) !== normalized) return [];
     const startValue = event.start?.dateTime || event.start?.date;
     const endValue = event.end?.dateTime || event.end?.date;
     const start = new Date(startValue);
