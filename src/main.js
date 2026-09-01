@@ -199,7 +199,10 @@ document.querySelector("#app").innerHTML = `
 
   <footer class="footer">
     <div class="shell footer-grid">
-      <div class="brand footer-brand"><span class="brand-mark">H</span><span><strong>HORCABAS</strong><small>DENTAL CLINIC</small></span></div>
+      <div class="footer-intro">
+        <div class="brand footer-brand"><span class="brand-mark">H</span><span><strong>HORCABAS</strong><small>DENTAL CLINIC</small></span></div>
+        <p>Gentle, modern dental care with a calm, personal approach for every smile in Oroquieta City.</p>
+      </div>
       <div><strong>Visit us</strong><p>2nd Floor, JSPC Arcade<br />Lower Langcangan, Oroquieta City<br />Philippines</p></div>
       <div><strong>Clinic hours</strong><p>Monday to Saturday<br />8:00 AM to 12:00 PM<br />1:00 PM to 5:00 PM</p></div>
       <div><strong>Appointments</strong><p><a href="tel:${PHONE_LINK}">${PHONE_DISPLAY}</a><br />Call to confirm your schedule<br /><a href="${FACEBOOK_URL}" target="_blank" rel="noopener noreferrer">Message us on Facebook</a></p></div>

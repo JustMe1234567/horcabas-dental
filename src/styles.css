@@ -194,6 +194,7 @@ h1 em { color: var(--violet); font-style: normal; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 55px; }
 .footer strong { color: var(--white); }
 .footer p { margin: 11px 0 0; color: #aebbd6; font-size: 14px; }
+.footer-intro p { max-width: 290px; margin-top: 18px; }
 .footer p a { color: var(--white); text-decoration: underline; text-decoration-color: rgba(255,255,255,.35); text-underline-offset: 3px; }
 .footer p a:hover, .footer p a:focus-visible { text-decoration-color: currentColor; }
 .footer-brand .brand-mark { background: var(--white); color: var(--blue-deep); }
