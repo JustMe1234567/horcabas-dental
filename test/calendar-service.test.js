@@ -1,6 +1,21 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { lookupSchedule } from "../src/calendar-service.js";
+import { getPhoneFromDescription, normalizePhone } from "../server/schedule-service.js";
+
+test("finds a phone number saved under the number description label", () => {
+  const description = "name: John\nnumber: 09052165110";
+  assert.equal(
+    normalizePhone(getPhoneFromDescription(description)),
+    normalizePhone("09052165110")
+  );
+});
+
+test("accepts common phone field labels regardless of capitalization", () => {
+  assert.equal(getPhoneFromDescription("Phone Number: 0917 123 4567"), "0917 123 4567");
+  assert.equal(getPhoneFromDescription("CONTACT NUMBER: +63 917 123 4567"), "+63 917 123 4567");
+  assert.equal(getPhoneFromDescription("mobile: 9171234567"), "9171234567");
+});
 
 test("turns an empty failed response into a friendly API error", async () => {
   global.fetch = async () => new Response("", { status: 502 });
