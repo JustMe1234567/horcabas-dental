@@ -20,10 +20,10 @@ let selectedDate = null;
 let eventsByDate = new Map();
 
 const services = [
-  ["01", "General dentistry", "Exams, cleaning, fillings, and preventive care for everyday oral health."],
-  ["02", "Cosmetic care", "Thoughtful whitening and smile enhancements with natural-looking results."],
-  ["03", "Restorative care", "Crowns, bridges, and repairs designed for comfort and lasting function."],
-  ["04", "Family dentistry", "Warm, patient care for children, adults, and every generation between."]
+  ["01", "General dentistry", "Routine dental checkups, oral exams, cleaning, fillings, and preventive guidance for everyday oral health."],
+  ["02", "Cosmetic dental care", "Teeth whitening and thoughtful smile enhancements planned around a natural-looking result."],
+  ["03", "Restorative dentistry", "Crowns, bridges, fillings, and dental repairs that help restore comfort and everyday function."],
+  ["04", "Family dentistry", "Patient dental care for children, adults, seniors, and every generation in between."]
 ];
 
 document.querySelector("#app").innerHTML = `
@@ -51,6 +51,7 @@ document.querySelector("#app").innerHTML = `
         </div>
         <span class="nav-menu-label">Explore the clinic</span>
         <a href="#services">Services</a>
+        <a href="#patient-guide">Patient guide</a>
         <a href="#availability">Availability</a>
         <a href="#my-schedule">My schedule</a>
         <a href="#about">About</a>
@@ -65,9 +66,9 @@ document.querySelector("#app").innerHTML = `
       <div class="hero-image" role="img" aria-label="Dentist speaking with a patient in a bright modern treatment room"></div>
       <div class="shell hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Gentle care. Clear guidance.</p>
-          <h1>A healthier smile starts with feeling <em>heard.</em></h1>
-          <p class="hero-body">Modern dental care with a calm, personal approach for the whole family.</p>
+          <p class="eyebrow">Your local Oroquieta City dentist</p>
+          <h1>A dental clinic in Oroquieta City that makes you feel <em>heard.</em></h1>
+          <p class="hero-body">Gentle family dental care in Lower Langcangan, Oroquieta City, with clear guidance and a calm, personal approach.</p>
           <div class="hero-actions">
             <a class="button" href="#availability">Check available dates</a>
             <a class="text-link" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a>
@@ -85,12 +86,26 @@ document.querySelector("#app").innerHTML = `
       </div>
     </section>
 
+    <section class="section local-intro-section" id="patient-guide">
+      <div class="shell local-intro-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Dental care close to home</p>
+          <h2>A local dental clinic serving Oroquieta City.</h2>
+        </div>
+        <div class="local-intro-copy reveal">
+          <p>Horcabas Dental Clinic provides general, preventive, cosmetic, restorative, and family dental care for patients in Oroquieta City and nearby communities in Misamis Occidental.</p>
+          <p>Our clinic is located at 2nd Floor, JSPC Arcade in Lower Langcangan. Patients can review available dates online, then call our clinic so the secretary can confirm the appointment time.</p>
+          <a class="text-link" href="#location">View our Oroquieta City location</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section services-section" id="services">
       <div class="shell">
         <div class="section-heading reveal">
           <p class="eyebrow">Care for every smile</p>
-          <h2>Everything you need, under one roof.</h2>
-          <p>Preventive, restorative, and cosmetic dentistry delivered with patience and precision.</p>
+          <h2>Dental services for Oroquieta City families.</h2>
+          <p>Explore routine and restorative dental care for children, adults, and families at our clinic in Lower Langcangan.</p>
         </div>
         <div class="services-list">
           ${services.map(([number, title, copy]) => `
@@ -168,8 +183,8 @@ document.querySelector("#app").innerHTML = `
           <p>years of caring for local smiles</p>
         </div>
         <div class="about-copy reveal">
-          <h2>Dentistry without the rush.</h2>
-          <p>We take time to listen, explain your options clearly, and make every visit feel comfortable from check-in to follow-up.</p>
+          <h2>Personal dental care for Oroquieta City patients.</h2>
+          <p>We take time to listen, explain dental care options clearly, and help each visit feel comfortable from check-in to follow-up. Our goal is to give individuals and families practical guidance for healthier smiles.</p>
           <div class="values">
             <div><strong>Thoughtful</strong><span>Care plans built around you</span></div>
             <div><strong>Transparent</strong><span>Clear options before treatment</span></div>
@@ -183,8 +198,9 @@ document.querySelector("#app").innerHTML = `
       <div class="shell location-grid">
         <div class="location-copy reveal">
           <p class="eyebrow">Visit the clinic</p>
-          <h2>Find us in Oroquieta City.</h2>
-          <address>2nd Floor, JSPC Arcade<br />Lower Langcangan, Oroquieta City<br />Philippines</address>
+          <h2>Visit our dental clinic in Oroquieta City.</h2>
+          <p>Horcabas Dental Clinic is conveniently located in Lower Langcangan and is open Monday through Saturday.</p>
+          <address>2nd Floor, JSPC Arcade<br />Lower Langcangan, Oroquieta City<br />Misamis Occidental 7207, Philippines</address>
           <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=8.481573822931571%2C123.80389927008653" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
         </div>
         <div class="map-frame reveal">
@@ -199,9 +215,41 @@ document.querySelector("#app").innerHTML = `
       </div>
     </section>
 
+    <section class="section faq-section" id="frequently-asked-questions">
+      <div class="shell faq-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Patient information</p>
+          <h2>Dental clinic questions, answered.</h2>
+          <p>Helpful information for planning a visit to Horcabas Dental Clinic in Oroquieta City.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Where is Horcabas Dental Clinic located?</summary>
+            <p>We are located at 2nd Floor, JSPC Arcade in Lower Langcangan, Oroquieta City, Misamis Occidental 7207. Use the map above for directions to the clinic.</p>
+          </details>
+          <details>
+            <summary>What dental services are available?</summary>
+            <p>Our homepage lists general dentistry, routine checkups and cleaning, fillings, preventive care, cosmetic dental care, crowns, bridges, restorative work, and family dentistry.</p>
+          </details>
+          <details>
+            <summary>How can I schedule a dental appointment?</summary>
+            <p>Check the availability calendar for an open date, then call 0969 519 5316. Our secretary will confirm the final appointment date and time by phone.</p>
+          </details>
+          <details>
+            <summary>What are the clinic hours?</summary>
+            <p>Horcabas Dental Clinic is available Monday through Saturday from 8:00 AM to 12:00 PM and from 1:00 PM to 5:00 PM. The clinic is unavailable on Sundays.</p>
+          </details>
+          <details>
+            <summary>Does the online calendar confirm my appointment?</summary>
+            <p>No. The calendar shows dates and times for reference. Your appointment is confirmed only after you speak with the clinic secretary.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="section cta-section">
       <div class="shell cta-inner reveal">
-        <div><p>Ready when you are.</p><h2>Let’s take care of your smile.</h2></div>
+        <div><p>Looking for a dentist in Oroquieta City?</p><h2>Call Horcabas Dental Clinic to plan your visit.</h2></div>
         <a class="button button-light" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a>
       </div>
     </section>
@@ -210,7 +258,9 @@ document.querySelector("#app").innerHTML = `
   <footer class="footer">
     <div class="shell footer-grid">
       <div class="footer-intro">
-        <div class="brand footer-brand"><span class="brand-mark">H</span><span><strong>HORCABAS</strong><small>DENTAL CLINIC</small></span></div>
+        <a class="footer-brand" href="#top" aria-label="Horcabas Dental Clinic home">
+          <img class="footer-brand-logo" src="${clinicLogo}" alt="" width="2172" height="724" />
+        </a>
         <p>Gentle, modern dental care with a calm, personal approach for every smile in Oroquieta City.</p>
       </div>
       <div><strong>Visit us</strong><p>2nd Floor, JSPC Arcade<br />Lower Langcangan, Oroquieta City<br />Philippines</p></div>
