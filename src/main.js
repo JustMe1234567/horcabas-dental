@@ -35,7 +35,7 @@ document.querySelector("#app").innerHTML = `
     </div>
     <nav class="shell nav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Horcabas Dental Clinic home">
-        <img class="brand-logo" src="${clinicLogo}" alt="" width="2170" height="725" />
+        <img class="brand-logo" src="${clinicLogo}" alt="" width="2172" height="724" />
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span>Menu</span><i aria-hidden="true"></i></button>
       <div class="nav-links" id="nav-links">
