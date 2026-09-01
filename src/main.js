@@ -67,7 +67,7 @@ document.querySelector("#app").innerHTML = `
         <a href="#services">Services</a>
         <a href="#availability">Availability</a>
         <a href="/about/">About</a>
-        <a href="#blog">Blog</a>
+        <a href="/blog/">Blog</a>
         <a class="button button-small" href="tel:${PHONE_LINK}">Call to schedule</a>
       </div>
     </nav>

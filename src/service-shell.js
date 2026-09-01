@@ -21,7 +21,7 @@ document.querySelector("#service-header").innerHTML = `
       <div class="nav-links" id="service-nav-links">
         <div class="nav-drawer-header"><span>Menu</span><button class="nav-close" type="button" aria-label="Close navigation menu"><i aria-hidden="true"></i></button></div>
         <span class="nav-menu-label">Explore the clinic</span>
-        <a href="/#services">Services</a><a href="/#availability">Availability</a><a href="/about/">About</a><a href="/#blog">Blog</a>
+        <a href="/#services">Services</a><a href="/#availability">Availability</a><a href="/about/">About</a><a href="/blog/">Blog</a>
         <a class="button button-small" href="tel:${PHONE_LINK}">Call to schedule</a>
       </div>
     </nav>

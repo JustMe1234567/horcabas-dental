@@ -13,6 +13,7 @@ export default {
       input: {
         home: page("./index.html"),
         about: page("./about/index.html"),
+        blog: page("./blog/index.html"),
         checkupCleaning: page("./dental-checkup-cleaning-oroquieta-city/index.html"),
         fillings: page("./dental-fillings-oroquieta-city/index.html"),
         familyDentist: page("./family-dentist-oroquieta-city/index.html"),
