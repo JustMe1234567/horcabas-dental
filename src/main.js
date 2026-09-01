@@ -20,10 +20,11 @@ let selectedDate = null;
 let eventsByDate = new Map();
 
 const services = [
-  ["01", "General dentistry", "Routine dental checkups, oral exams, cleaning, fillings, and preventive guidance for everyday oral health."],
-  ["02", "Cosmetic dental care", "Teeth whitening and thoughtful smile enhancements planned around a natural-looking result."],
-  ["03", "Restorative dentistry", "Crowns, bridges, fillings, and dental repairs that help restore comfort and everyday function."],
-  ["04", "Family dentistry", "Patient dental care for children, adults, seniors, and every generation in between."]
+  ["01", "Dental checkup and cleaning", "Routine oral exams, cleaning, and preventive guidance for everyday oral health.", "/dental-checkup-cleaning-oroquieta-city/"],
+  ["02", "Dental fillings", "Assessment and restorative care for selected teeth affected by decay or minor damage.", "/dental-fillings-oroquieta-city/"],
+  ["03", "Cosmetic dental care", "Thoughtful smile improvements planned around oral health and realistic expectations.", "/cosmetic-dentistry-oroquieta-city/"],
+  ["04", "Crowns and bridges", "Restorative options for selected damaged or missing teeth, based on a dental assessment.", "/crowns-bridges-oroquieta-city/"],
+  ["05", "Family dentistry", "Patient dental care for children, adults, seniors, and every generation in between.", "/family-dentist-oroquieta-city/"]
 ];
 
 document.querySelector("#app").innerHTML = `
@@ -108,11 +109,11 @@ document.querySelector("#app").innerHTML = `
           <p>Explore routine and restorative dental care for children, adults, and families at our clinic in Lower Langcangan.</p>
         </div>
         <div class="services-list">
-          ${services.map(([number, title, copy]) => `
+          ${services.map(([number, title, copy, url]) => `
             <article class="service-item reveal" style="--reveal-order: ${Number(number) - 1}">
               <span>${number}</span>
-              <h3>${title}</h3>
-              <p>${copy}</p>
+              <h3><a href="${url}">${title}</a></h3>
+              <p>${copy} <a class="service-learn-link" href="${url}">Learn more</a></p>
             </article>
           `).join("")}
         </div>
@@ -225,23 +226,23 @@ document.querySelector("#app").innerHTML = `
         <div class="faq-list reveal">
           <details>
             <summary>Where is Horcabas Dental Clinic located?</summary>
-            <p>We are located at 2nd Floor, JSPC Arcade in Lower Langcangan, Oroquieta City, Misamis Occidental 7207. Use the map above for directions to the clinic.</p>
+            <div class="faq-answer"><div><p>We are located at 2nd Floor, JSPC Arcade in Lower Langcangan, Oroquieta City, Misamis Occidental 7207. Use the map above for directions to the clinic.</p></div></div>
           </details>
           <details>
             <summary>What dental services are available?</summary>
-            <p>Our homepage lists general dentistry, routine checkups and cleaning, fillings, preventive care, cosmetic dental care, crowns, bridges, restorative work, and family dentistry.</p>
+            <div class="faq-answer"><div><p>Our homepage lists general dentistry, routine checkups and cleaning, fillings, preventive care, cosmetic dental care, crowns, bridges, restorative work, and family dentistry.</p></div></div>
           </details>
           <details>
             <summary>How can I schedule a dental appointment?</summary>
-            <p>Check the availability calendar for an open date, then call 0969 519 5316. Our secretary will confirm the final appointment date and time by phone.</p>
+            <div class="faq-answer"><div><p>Check the availability calendar for an open date, then call 0969 519 5316. Our secretary will confirm the final appointment date and time by phone.</p></div></div>
           </details>
           <details>
             <summary>What are the clinic hours?</summary>
-            <p>Horcabas Dental Clinic is available Monday through Saturday from 8:00 AM to 12:00 PM and from 1:00 PM to 5:00 PM. The clinic is unavailable on Sundays.</p>
+            <div class="faq-answer"><div><p>Horcabas Dental Clinic is available Monday through Saturday from 8:00 AM to 12:00 PM and from 1:00 PM to 5:00 PM. The clinic is unavailable on Sundays.</p></div></div>
           </details>
           <details>
             <summary>Does the online calendar confirm my appointment?</summary>
-            <p>No. The calendar shows dates and times for reference. Your appointment is confirmed only after you speak with the clinic secretary.</p>
+            <div class="faq-answer"><div><p>No. The calendar shows dates and times for reference. Your appointment is confirmed only after you speak with the clinic secretary.</p></div></div>
           </details>
         </div>
       </div>
@@ -306,6 +307,37 @@ document.addEventListener("keydown", (event) => {
 document.querySelectorAll(".nav-links a").forEach((link) => link.addEventListener("click", () => {
   setMenuOpen(false);
 }));
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+document.querySelectorAll(".faq-list details").forEach((details) => {
+  const summary = details.querySelector("summary");
+  const answer = details.querySelector(".faq-answer");
+
+  summary.addEventListener("click", (event) => {
+    event.preventDefault();
+    const isExpanded = details.classList.contains("is-expanded");
+
+    if (prefersReducedMotion.matches) {
+      details.open = !isExpanded;
+      details.classList.toggle("is-expanded", !isExpanded);
+      return;
+    }
+
+    if (!isExpanded) {
+      details.open = true;
+      requestAnimationFrame(() => details.classList.add("is-expanded"));
+      return;
+    }
+
+    details.classList.remove("is-expanded");
+    const finishClosing = (transitionEvent) => {
+      if (transitionEvent.target !== answer || transitionEvent.propertyName !== "grid-template-rows") return;
+      answer.removeEventListener("transitionend", finishClosing);
+      if (!details.classList.contains("is-expanded")) details.open = false;
+    };
+    answer.addEventListener("transitionend", finishClosing);
+  });
+});
 
 const lookupForm = document.querySelector("#schedule-lookup-form");
 const lookupResult = document.querySelector("#lookup-result");
