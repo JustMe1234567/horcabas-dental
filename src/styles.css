@@ -36,7 +36,7 @@ section[id] { scroll-margin-top: 110px; }
 .utility-inner { min-height: 34px; display: flex; align-items: center; justify-content: space-between; }
 .utility-inner a { font-weight: 700; }
 .site-header { position: sticky; top: 0; z-index: 40; background: rgba(247,249,255,.94); backdrop-filter: blur(14px); box-shadow: 0 1px 0 rgba(16,34,74,.06); }
-.nav { height: 74px; display: flex; align-items: center; justify-content: space-between; }
+.nav { position: relative; height: 74px; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; align-items: center; gap: 11px; }
 .brand-logo { display: block; width: 220px; height: auto; max-height: 64px; object-fit: contain; }
 .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: var(--white); background: linear-gradient(145deg, var(--blue), var(--violet)); font-family: "Outfit Variable", "Segoe UI", sans-serif; font-weight: 800; font-size: 21px; box-shadow: 0 8px 24px rgba(64, 62, 183, .2); }
@@ -44,6 +44,7 @@ section[id] { scroll-margin-top: 110px; }
 .brand strong { font-family: "Outfit Variable", "Segoe UI", sans-serif; font-size: 15px; }
 .brand small { margin-top: 4px; font-size: 9px; color: var(--muted); }
 .nav-links { display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 600; }
+.nav-menu-label { display: none; }
 .nav-links > a:not(.button) { position: relative; }
 .nav-links > a:not(.button)::after { content: ""; position: absolute; inset: auto 0 -6px; height: 2px; background: var(--violet); transform: scaleX(0); transform-origin: right; transition: transform var(--motion-fast) var(--ease-exit); }
 .nav-links > a:hover::after { transform: scaleX(1); }
@@ -209,11 +210,14 @@ h1 em { color: var(--violet); font-style: normal; }
 @keyframes slot-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 900px) {
-  .nav-links { position: absolute; top: 74px; left: 20px; right: 20px; display: flex; visibility: hidden; opacity: 0; transform: translateY(-10px) scale(.985); transform-origin: top center; pointer-events: none; align-items: stretch; flex-direction: column; gap: 4px; padding: 15px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); transition: opacity var(--motion-fast) var(--ease-exit), transform var(--motion-fast) var(--ease-exit), visibility 0s linear var(--motion-fast); }
+  .site-header:has(.nav-links.is-open) { background: var(--surface); }
+  .nav-links { position: absolute; top: 100%; left: 0; right: 0; display: flex; visibility: hidden; opacity: 0; transform: translateY(-8px) scale(.99); transform-origin: top center; pointer-events: none; align-items: stretch; flex-direction: column; gap: 0; padding: 10px; border: 1px solid var(--line); border-top-color: rgba(24,89,201,.12); border-radius: 0 0 18px 18px; background: var(--white); box-shadow: 0 24px 55px rgba(16,34,74,.18); transition: opacity var(--motion-fast) var(--ease-exit), transform var(--motion-fast) var(--ease-exit), visibility 0s linear var(--motion-fast); }
   .nav-links.is-open { visibility: visible; opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; transition: opacity var(--motion-base) var(--ease-enter), transform var(--motion-base) var(--ease-enter), visibility 0s; }
-  .nav-links a { min-height: 46px; display: flex; align-items: center; padding: 11px 12px; border-radius: 9px; }
+  .nav-menu-label { display: block; padding: 7px 13px 9px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+  .nav-links a { min-height: 50px; display: flex; align-items: center; padding: 12px 13px; border-top: 1px solid rgba(220,228,242,.75); border-radius: 9px; font-size: 15px; }
   .nav-links > a:not(.button)::after { display: none; }
   .nav-links > a:not(.button):hover, .nav-links > a:not(.button):focus-visible { background: var(--sky); }
+  .nav-links .button { min-height: 48px; margin-top: 10px; border-top: 0; }
   .menu-toggle { display: inline-flex; }
   .hero { min-height: 720px; }
   .hero-image { background: linear-gradient(180deg, rgba(247,249,255,.98) 0%, rgba(247,249,255,.88) 44%, rgba(247,249,255,.08) 76%), url("/assets/clinic-hero.png") 62% center/cover no-repeat; }
